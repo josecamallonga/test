@@ -19,6 +19,7 @@
 {
     // 1
     NSDictionary *_characterDetailJson;
+    Character *_testGuy;
 }
 
 // 2
@@ -27,6 +28,8 @@
     // 3
     NSURL *dataServiceURL = [[NSBundle bundleForClass:self.class]
                              URLForResource:@"character" withExtension:@"json"];
+    
+    NSLog(dataServiceURL);
     
     // 4
     NSData *sampleData = [NSData dataWithContentsOfURL:dataServiceURL];
@@ -40,6 +43,7 @@
     
     
     _characterDetailJson = json;
+    _testGuy = [[Character alloc] initWithCharacterDetailData:_characterDetailJson];
 }
 
 -(void)tearDown
